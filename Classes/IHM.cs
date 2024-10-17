@@ -59,10 +59,12 @@ namespace ExerciceFinaleCs.Classes
             string choix = Console.ReadLine();
             if (choix == "oui")
             {
+                Console.Clear();
                 etapeSaisie = 2;
             }
             else if (choix == "non")
             {
+                Console.Clear();
                 etapeSaisie = 1;
             }
         }
@@ -76,7 +78,7 @@ namespace ExerciceFinaleCs.Classes
                 Console.WriteLine($"- {client.NomPrenom}");
             }
             Console.WriteLine("-------------------------------------------------------");
-            Console.WriteLine("Tapez le nom et le prénom exactement comme ils sont affichés pour pouvoir vous connecter. (tapez retour pour faire revenir en arrière)");
+            Console.WriteLine("Tapez le nom et le prénom exactement comme ils sont affichés pour pouvoir vous connecter.\n (tapez retour pour faire revenir en arrière)");
             string reponse = Console.ReadLine();
             if (reponse == "retour")
             {
@@ -129,6 +131,7 @@ namespace ExerciceFinaleCs.Classes
             string telClient = Console.ReadLine();
 
             ajouterClient(new Client(nomClient, prenomClient, new Adresse(rueClient, villeClient), ageClient, telClient));
+            Console.Clear();
             Console.WriteLine($"Bienvenue chez nous {prenomClient} !");
             clientConnecter = new Client(nomClient, prenomClient, new Adresse(rueClient, villeClient), ageClient, telClient);
             etapeSaisie = 3; // Passer à la réservation après création du client
@@ -145,6 +148,7 @@ namespace ExerciceFinaleCs.Classes
             string nomEvenement = Console.ReadLine();
             if (nomEvenement == "retour")
             {
+                Console.Clear();
                 etapeSaisie = 0;
                 return;
             }
@@ -158,7 +162,8 @@ namespace ExerciceFinaleCs.Classes
                 }
             }
             // Si l'événement n'existe pas
-            Console.WriteLine("L'événement n'est pas valide /!\\");
+            Console.Clear();
+            Console.WriteLine("L'événement choisit n'est pas valide /!\\");
             etapeSaisie = 3; // Rester à l'étape de choix d'événement
         }
 
@@ -198,6 +203,7 @@ namespace ExerciceFinaleCs.Classes
             Billet billetToAdd = new Billet(numBillet, client, evenement, typePlace);
             evenement.AjouterBillet(billetToAdd);
             client.AjouterBillet(billetToAdd);
+            Console.Clear();
             Console.WriteLine($"Merci pour votre réservation {client.Prenom}, vous avez le billet numéro {numBillet}");
             etapeSaisie = 0; // Retour à l'introduction après la réservation
         }
